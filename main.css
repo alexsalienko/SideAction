@@ -1,0 +1,522 @@
+html,body{
+    padding: 0;
+    margin:0;
+    height:100%;
+    background: #000;
+  box-sizing:border-box;
+}
+body * {
+    box-sizing:border-box;
+}
+#devTools{
+    position: absolute;
+    top:15px;
+    left:30px;
+    right:30px;
+    color:#fff;
+    z-index:10;
+  padding:5px;
+  border:1px solid gray;
+  text-align: center;
+}
+#gameBg{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border:1px solid violet;
+}
+#scene{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  background:#1d1c1c;
+}
+/*hero*/
+#hero {
+  border:1px solid green;
+}
+.dir-indicator{
+position:absolute;
+top: 15px;
+right: 0;
+width: 30px;
+height: 5px;
+border:1px solid yellow;
+}
+.hero-health-bar{
+  position:absolute;
+  width:200px;
+  left:10px;
+  top:10px;
+  border:1px solid white;
+  color:#fff;
+  text-align:center;
+  padding:5px;
+}
+
+.hero-health-bar__filler{
+  height:20px;
+  background:red;
+}
+
+.hero-health-bar__numbers{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.damage-layer{
+    position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  box-shadow:inset 0 0 30px 30px rgba(255,0,0,0.3);
+}
+
+[direction="toLeft"]{
+  transform:scale(-1,1);
+}
+
+#room-wrapper{
+  position:absolute;
+  top:0;
+  left:0;
+  border:1px solid white;
+}
+.enemy{
+  position:absolute;
+}
+
+.enemy-health-bar{
+  border:1px solid red;
+}
+
+#level-panel{
+position:absolute;
+ border:1px solid gray; 
+}
+
+#points-bar{
+  position:absolute;
+  top:15px;
+  right:15px;
+  color:#fff;
+}
+
+.bullet{
+  position:absolute;
+  background:yellow;
+  border-radius:100%;
+}
+
+.blood-shot{
+ position:absolute;
+width:30px;
+height:30px;
+  background:red;
+  transform:translate(-50%,0);
+}
+
+.enemy-health-bar__filler{
+  background:red;
+}
+
+
+.alert-message{
+  position:absolute;
+  top:300px;
+  left:50%;
+  transform:translate(-50%,0);
+  right:auto;
+     border:1px solid #fff;
+  background:#000;
+  padding:50px;
+  z-index:10;
+}
+
+.alert-message.mistake{
+border:1px solid red;
+color:red;
+text-transform:uppercase;
+}
+
+.game-over-wrap{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:30px 0;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+color:#fff;
+z-index:11;
+}
+
+.game-over-title{
+color:red;
+font-size:30px;
+font-weight:700;
+}
+
+.game-over-reset-btn{
+  background:#fff;
+  border:0;
+  padding:0;
+  width:150px;
+  height:50px;
+  color:#000;
+}
+
+.game-success{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:30px 0;
+color:white;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(47,199,74,0.8);
+z-index:11;
+}
+
+.success-title{
+  font-size:30px;
+font-weight:700;
+}
+
+.success-title{
+  font-size:20px;
+font-weight:700;
+}
+
+.success-next-btn{
+  background:#fff;
+  border:0;
+  padding:0;
+  width:150px;
+  height:50px;
+  color:#000;
+}
+
+#weapon{
+  position: absolute;
+transform: scale(-1,1) rotate(65deg);
+}
+
+.gun-wrapper{
+  position:absolute;
+}
+
+.gun-part-1{
+position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid yellow;
+  width: 65px;
+  height: 15px;
+}
+
+.gun-part-2{
+  position:absolute;
+  left:0;
+  top:0;
+  border:1px solid yellow;
+  width:15px;
+  height:40px;
+  transform:rotate(15deg);
+}
+
+.machinegun-part-1{
+position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid violet;
+  width: 135px;
+  height: 16px;
+}
+
+.machinegun-part-2{
+  position:absolute;
+  left:0;
+  top:0;
+  border:1px solid violet;
+  width:15px;
+  height:60px;
+  transform:rotate(15deg);
+}
+
+.machinegun-part-3{
+  position:absolute;
+  left:100px;
+  top:0;
+  border:1px solid violet;
+  width:15px;
+  height:70px;
+  transform:rotate(-15deg);
+}
+
+
+.rifle-part-1{
+position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid brown;
+  width: 230px;
+  height: 15px;
+}
+
+.rifle-part-2{
+position: absolute;
+  left: 0;
+  top: 5px;
+  border: 1px solid brown;
+  width: 70px;
+  height: 40px;
+  transform: rotate(-8deg);
+}
+
+.rifle-part-3{
+position: absolute;
+  left: 100px;
+  top: 15px;
+  border: 1px solid brown;
+  width: 40px;
+  height: 20px;
+}
+
+.rifle-part-4{
+  position:absolute;
+  left:75px;
+  top:-10px;
+  border:1px solid brown;
+  width:20px;
+  height:10px;
+}
+
+.rifle-part-5{
+  position:absolute;
+  left:45px;
+  top:-20px;
+  border:1px solid brown;
+  width:80px;
+  height:10px;
+}
+
+.blood-box{
+  position:absolute;
+  width:40px;
+  height:40px;
+  background:red;
+}
+
+.pick-up-layer{
+    position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.05);
+  box-shadow:inset 0 0 30px 30px rgba(255,255,255,0.3);
+}
+.level-points-bar{
+  color: #fff;
+  position: absolute;
+  top: 200px;
+  right: 100px;
+}
+#weapon-bar{
+color: #fff;
+  border: 1px solid #fff;
+  padding: 6px;
+  position: absolute;
+  top: 10px;
+  left: 220px;
+}
+
+.melee-wrapper{
+  position:relative;
+}
+
+.knife-handle{
+  position:absolute;
+  top:0;
+  left:0;
+  width:15px;
+  height:10px;
+  border:1px solid brown;
+}
+.knife-blade{
+  position:absolute;
+  top:0;
+  left:15px;
+  width:35px;
+  height:15px;
+  border:1px solid gray;
+}
+
+.machete-handle{
+  position:absolute;
+  top:0;
+  left:0;
+  width:20px;
+  height:12px;
+  border:1px solid brown;
+}
+.machete-blade{
+  position:absolute;
+  top:0;
+  left:20px;
+  width:100px;
+  height:20px;
+  border:1px solid blue;
+}
+
+.axe-handle{
+  position:absolute;
+  top:0;
+  left:0;
+  width:50px;
+  height:10px;
+  border:1px solid brown;
+}
+.axe-blade{
+  position:absolute;
+  top:0;
+  left:50px;
+  width:30px;
+  height:40px;
+  border:1px solid violet;
+}
+
+.fist{
+  position:absolute;
+  width:20px;
+  height:20px;
+  border:1px solid violet;
+}
+
+#weapon-select-box{
+  position:absolute;
+  top:150px;
+  left:30px;
+  right:30px;
+  height:300px;
+  border:1px solid yellow;
+  background:#000;
+}
+.weapon-select-cell{
+  color:#fff;
+  border:1px solid white;
+  position:absolute;
+  padding:15px;
+}
+
+.weapon-select-cell_active{
+  color:#fff;
+  border:2px solid yellow;
+  box-shadow:inset 0 0 15px 5px yellow; 
+}
+
+.inv-pic-wrapper{
+  height:50px;
+  width:120px;
+  border:1px solid red;
+  overflow:hidden;
+}
+
+#map2{
+  display:flex;
+  align-items:center;
+  border:1px solid green;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#000;
+}
+
+.steps-wrapper{
+  display:flex;
+  gap:0 10px;
+}
+.map-step{
+    display:flex;
+  gap:0 10px;
+}
+.map-col{
+    display:flex;
+  flex-direction:column;
+  justify-content:center;
+  //border:1px solid gray;
+  gap:10px 0;
+}
+.map-row{
+  width:150px;
+  height:200px;
+  border:1px solid #928c8c;
+}
+#map2 .map-row.unlocked{
+border-color:#fdfb8b;
+}
+#map2 .map-row.finished{
+border-color: #294913;
+background: rgba(20, 29, 12, 0.85);
+}
+#map2 .map-row.current{
+  position:relative;
+background: rgba(152, 37, 37, 0.2);
+  border-color: #b64040;
+}
+/*.map-row.current:before{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:6px;
+  height:6px;
+  background:red;
+  border-radius:100%;
+}*/
+#map2 .map-row{
+  border-color:#928c8c;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.point-enems-types{
+  padding:5px;
+  border:1px solid #db7b7b;
+  color:#db7b7b;
+  text-align:left;
+}
+.point-weapons-types{
+  padding:5px;
+  border:1px solid #bdbd82;
+  color:#bdbd82;
+  text-align:left;
+}
+.room-top-bar{
+  border:1px solid #fff;
+  padding:5px;
+  position:absolute;
+  top:100px;
+  left:30px;
+  right:30px;
+  color:#fff;
+}
