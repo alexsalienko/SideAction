@@ -367,7 +367,7 @@ currentRoom = {
   projectiles:[],
   dropsRandMass: ['healt','jewerly','diamond','necklace'],
   enemsRandMass: ['small','small-2','medium','medium-2','big','big-2'],
-  weaponsRandMass: ['gun','machinegun','rifle','knife','machete','axe'],
+  weaponsRandMass: ['gun','machineGun','rifle','knife','machete','axe'],
   currentProjId:1,
   currentDropId:1,
   enemsKilled:0,
@@ -1872,6 +1872,17 @@ function renderMap(){
   crelMap.id="map2";
   domScene.append(crelMap);
   addEventsOnMap();
+}
+
+function toggleMap(){
+	let rendMap = document.getElementById('map');
+	if(rendMap.classList.contains('map-visible')){
+		rendMap.classList.remove('map-visible');
+		rendMap.classList.add('map-hidden');
+	} else if (rendMap.classList.contains('map-hidden')) {
+		rendMap.classList.remove('map-hidden');
+		rendMap.classList.add('map-visible');
+	}
 }
 
 function addEventsOnMap(){
