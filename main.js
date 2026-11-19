@@ -1926,7 +1926,7 @@ function addEventsOnMap(){
         gameState.mapPoints[currentColNext][currentRow].unlocked = true;
       }
     }
-renderMap();
+toggleMap();
 //console.log('gameState.mapPoints after',gameState.mapPoints);
     }//конец 
   }
