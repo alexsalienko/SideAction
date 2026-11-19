@@ -1753,8 +1753,8 @@ function buildMapPoints(){
 
           enemsObjects.push(singleEnObj);
         }
-          console.log('enemsObjects',enemsObjects);
-          console.log('----------------------------------------');
+          //console.log('enemsObjects',enemsObjects);
+          //console.log('----------------------------------------');
 let SinglePointObj = {
             step:mapStep,
           unlocked:false,
@@ -1783,7 +1783,7 @@ let SinglePointObj = {
           enemsObjects:enemsObjects,
           };
         }
-
+console.log('weaponsTypes',weaponsTypes);
           column.push(SinglePointObj);
         //console.log('column: ',column);
           //один поинт конец
