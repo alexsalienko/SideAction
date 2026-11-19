@@ -1398,7 +1398,6 @@ function keydown(e) {
 	if (e.keyCode == 80) {
 	//P | pause
 	pauseGame();
-	console.log('set pause');
 	}
 }
 function keyup(e) {
@@ -1659,11 +1658,16 @@ function updateWeaponBar(){
 }
 
   function pauseGame(){
+	if(!gameState.gamePaused){
     clearInterval(nIntervId);
-  }
-  function runGame(){
+	gameState.gamePaused = true;
+	console.log('pause set');
+  } else {
     clearInterval(nIntervId);
     nIntervId = setInterval(frameBuilder,35/*16.7*/);
+	gameState.gamePaused = false;
+	console.log('run/unpause set');
+  }
   }
 
 
@@ -2021,7 +2025,6 @@ document.getElementById('setMachete').onclick = function(){
 };
 document.getElementById('setPause').onclick = function(){
   pauseGame();
-  console.log('setPause');
 };
 document.getElementById('setPlay').onclick = function(){
   nIntervId = setInterval(frameBuilder,35/*16.7*/);
