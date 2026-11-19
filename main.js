@@ -1387,6 +1387,10 @@ function keydown(e) {
 		currentRoom.hero.weaponSelect = true;
     renderWeaponSelect();
 	}
+	if (e.keyCode == 77) {
+		//Toggle Map
+    toggleMap();
+	}
 }
 function keyup(e) {
   //Отжатие
@@ -1969,7 +1973,7 @@ crelDevTools.innerHTML =`
 <button id="setFrame">NextFrame</button>
 <button id="setPlay">Play</button>
 <button id="setWave">MakeWave</button>
-<button id="togglewMap">toggleMap</button>
+<button id="toggleMap">toggleMap</button>
 `;
 document.getElementsByTagName('body')[0].append(crelDevTools);
 document.getElementById('setRoom').onclick = function(){
