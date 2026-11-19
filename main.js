@@ -446,14 +446,18 @@ function renderWeapon(){
   }
 }  
 function createAndRenderRoom(){
-  domScene.innerHTML='';
-  let currentPoint = gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow];
+	//render RoomWrapper
+    if(document.getElementById('room-wrapper')!=null){
+    document.getElementById('room-wrapper').remove();
+  	}
   let crelRoomWrapper = document.createElement('div');
   crelRoomWrapper.id = 'room-wrapper';
   crelRoomWrapper.style.width = gameSettings.scene.width+'px';
   crelRoomWrapper.style.height = gameSettings.scene.height+'px';
   domScene.append(crelRoomWrapper);
   domRoomWrapper = document.getElementById('room-wrapper');
+//Текущая точка
+  let currentPoint = gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow];
   //hero initialization
   currentRoom.hero = Object.assign({}, heroSource);
   currentRoom.hero.left = (gameSettings.scene.width/2)-(currentRoom.hero.outerBoxWidth/2);
