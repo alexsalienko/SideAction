@@ -436,7 +436,7 @@ color: #fff;
   overflow:hidden;
 }
 
-#map{
+#map:not(.map-hidden){
   display:flex;
   align-items:center;
   border:1px solid green;
