@@ -446,6 +446,7 @@ color: #fff;
   right:0;
   bottom:0;
   background:#000;
+z-index:9;
 }
 
 .steps-wrapper{
@@ -490,14 +491,14 @@ background: rgba(152, 37, 37, 0.2);
 }
 .point-enems-types{
   padding:5px;
-  border:1px solid #db7b7b;
-  color:#db7b7b;
+  border:1px solid #928c8c;
+  color:#fff;
   text-align:left;
 }
 .point-weapons-types{
   padding:5px;
-  border:1px solid #bdbd82;
-  color:#bdbd82;
+  border:1px solid #928c8c;
+  color:#fff;
   text-align:left;
 }
 .room-top-bar{
