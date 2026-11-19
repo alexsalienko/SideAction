@@ -459,6 +459,7 @@ function createAndRenderRoom(){
   currentRoom.hero.left = (gameSettings.scene.width/2)-(currentRoom.hero.outerBoxWidth/2);
   currentRoom.hero.health = currentRoom.hero.maxHealth;
   currentRoom.hero.weaponSelectChanged = false;
+//adding hands
   let hands = Object.assign({}, weaponsSource['hands']);
   currentRoom.hero.weaponsSet.push(hands);
   //room weapons set
@@ -466,8 +467,8 @@ function createAndRenderRoom(){
     let weapon = Object.assign({}, weaponsSource[currentPoint.rules.weaponsTypes[i]]);
     currentRoom.hero.weaponsSet.push(weapon);
   }
-  currentRoom.hero.weapon = currentRoom.hero.weaponsSet[0];
-  currentRoom.hero.weaponIndex = 0;
+  currentRoom.hero.weapon = currentRoom.hero.weaponsSet[1];
+  currentRoom.hero.weaponIndex = 1;
   currentRoom.hero.singleShotDelay = 0;
   //currentRoom.hero.weapon.currentClipFill = currentRoom.hero.weapon.clipMax;
 
