@@ -1392,8 +1392,13 @@ function keydown(e) {
     renderWeaponSelect();
 	}
 	if (e.keyCode == 77) {
-		//Toggle Map
+		//M | Toggle Map
     toggleMap();
+	}
+	if (e.keyCode == 80) {
+	//P | pause
+	pauseGame();
+	console.log('set pause');
 	}
 }
 function keyup(e) {
@@ -1930,6 +1935,7 @@ function addEventsOnMap(){
         gameState.mapPoints[currentColNext][currentRow].unlocked = true;
       }
     }
+createAndRenderRoom();
 toggleMap();
 renderMap();
 //console.log('gameState.mapPoints after',gameState.mapPoints);
