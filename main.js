@@ -1986,7 +1986,6 @@ crelDevTools.innerHTML =`
 <button id="setMachete">machete</button>
 <button id="setPause">Pause</button>
 <button id="setFrame">NextFrame</button>
-<button id="setPlay">Play</button>
 <button id="setWave">MakeWave</button>
 <button id="toggleMap">toggleMap</button>
 `;
@@ -2025,10 +2024,6 @@ document.getElementById('setMachete').onclick = function(){
 };
 document.getElementById('setPause').onclick = function(){
   pauseGame();
-};
-document.getElementById('setPlay').onclick = function(){
-  nIntervId = setInterval(frameBuilder,35/*16.7*/);
-  console.log('setPlay');
 };
 document.getElementById('setFrame').onclick = function(){
   frameBuilder();
