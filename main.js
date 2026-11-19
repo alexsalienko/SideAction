@@ -1799,8 +1799,8 @@ console.log('weaponsTypes',weaponsTypes);
 }
 
 function renderMap(){
-  if(document.getElementById('map2')!=null){
-    document.getElementById('map2').remove();
+  if(document.getElementById('map')!=null){
+    document.getElementById('map').remove();
   }
   let crelMap = document.createElement('div');
   let crelStepsWrapper = document.createElement('div');
@@ -1869,7 +1869,8 @@ function renderMap(){
   }//конец колонки
 
     crelMap.append(crelStepsWrapper);
-  crelMap.id="map2";
+  crelMap.id="map";
+crelMap.className="map-hidden";
   domScene.append(crelMap);
   addEventsOnMap();
 }
@@ -1940,7 +1941,7 @@ moveEnemies();
 dropsCollision();
 }
 
-
+renderMap();
 
 document.addEventListener('keydown',keydown);
 document.addEventListener('keyup',keyup);
@@ -1968,7 +1969,7 @@ crelDevTools.innerHTML =`
 <button id="setFrame">NextFrame</button>
 <button id="setPlay">Play</button>
 <button id="setWave">MakeWave</button>
-<button id="showMap">showMap</button>
+<button id="togglewMap">toggleMap</button>
 `;
 document.getElementsByTagName('body')[0].append(crelDevTools);
 document.getElementById('setRoom').onclick = function(){
@@ -2019,9 +2020,9 @@ document.getElementById('setWave').onclick = function(){
   createAndRenderEnems();
   console.log('setWave');
 };
-document.getElementById('showMap').onclick = function(){
-  renderMap();
-  console.log('renderMap');
+document.getElementById('toggleMap').onclick = function(){
+  toggleMap();
+  console.log('toggleMap');
 };
 };
 devToolsRender();
