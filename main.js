@@ -1931,6 +1931,7 @@ function addEventsOnMap(){
       }
     }
 toggleMap();
+renderMap();
 //console.log('gameState.mapPoints after',gameState.mapPoints);
     }//конец 
   }
