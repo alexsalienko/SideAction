@@ -1432,7 +1432,7 @@ function keyup(e) {
   if (e.keyCode == 75) {
 		currentRoom.hero.weaponSelect = false;
     document.getElementById('weapon-select-box').remove();
-    runGame();
+    pauseGame();
 	}
 }  
 
