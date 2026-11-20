@@ -1431,8 +1431,10 @@ function keyup(e) {
 	}
   if (e.keyCode == 75) {
 		currentRoom.hero.weaponSelect = false;
+	if(document.getElementById('weapon-select-box')!=null){
     document.getElementById('weapon-select-box').remove();
     pauseGame();
+	}
 	}
 }  
 
