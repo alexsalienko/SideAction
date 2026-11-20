@@ -1587,7 +1587,7 @@ function updateWeaponBar(){
 }
 
   function renderWeaponSelect(){
-    if(document.getElementById('weapon-select-box')==null){
+    if(!gameState.gamePaused && document.getElementById('weapon-select-box')==null){
     pauseGame();
     let crelWeaponSelectWrap = document.createElement('div');
     crelWeaponSelectWrap.id = "weapon-select-box";
