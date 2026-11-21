@@ -361,7 +361,21 @@ gameState = {
   currentMapPointRow:0,
 }
 
-currentRoom = {
+let currentRoom = {
+  enems:[],
+  drops:[],
+  projectiles:[],
+  dropsRandMass: ['healt','jewerly','diamond','necklace'],
+  enemsRandMass: ['small','small-2','medium','medium-2','big','big-2'],
+  weaponsRandMass: ['gun','machineGun','rifle','knife','machete','axe'],
+  currentProjId:1,
+  currentDropId:1,
+  enemsKilled:0,
+  frameNumber:1,
+  levelPoints:0,
+}
+
+let currentRoomExample = {
   enems:[],
   drops:[],
   projectiles:[],
@@ -446,6 +460,7 @@ function renderWeapon(){
   }
 }  
 function createAndRenderRoom(){
+	currentRoom = currentRoomExample;
 	//render RoomWrapper
     if(document.getElementById('room-wrapper')!=null){
     document.getElementById('room-wrapper').remove();
