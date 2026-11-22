@@ -353,13 +353,22 @@ dropsSource = {
 
 gameState = {
   gameOver:false,
-  currentLevel:1,
+  currentLevel:0,
   playerPoints:0,
   mapPointSections:[],
   mapPoints:[],
   currentMapPointCol:0,
   currentMapPointRow:0,
 }
+
+let gameLevels = [
+	{
+	name:'forest',
+	dropsRandMass: ['healt','jewerly','diamond','necklace'],
+  enemsRandMass: ['small','small-2','medium','medium-2','big','big-2'],
+  weaponsRandMass: ['gun','machineGun','rifle','knife','machete','axe'],
+	},
+]
 
 let currentRoom = {
   enems:[],
@@ -1750,7 +1759,7 @@ function buildMapPoints(){
         //define enems set
         let ensTypesCount = getRandomIntInclusive(1,3);
         let ensTypes = [];
-        let ensRandCopyMass = currentRoom.enemsRandMass.slice();
+        let ensRandCopyMass = gameLevels(gameState.currentLevel).enemsRandMass.slice();
         for(let i=0;i<ensTypesCount;i++){
         let oneEnemyTypeIndex = getRandomIntInclusive(0,ensRandCopyMass.length-1);
         let cuttedType = ensRandCopyMass[oneEnemyTypeIndex];
@@ -1761,7 +1770,7 @@ function buildMapPoints(){
         //define weapons set
         let weaponsTypesCount = getRandomIntInclusive(1,3);
         let weaponsTypes = [];
-        let weaponsRandCopyMass = currentRoom.weaponsRandMass.slice();
+        let weaponsRandCopyMass = gameLevels(gameState.currentLevel).weaponsRandMass.slice();
         for(let i=0;i<weaponsTypesCount;i++){
         let oneWeaponTypeIndex = getRandomIntInclusive(0,weaponsRandCopyMass.length-1);
         let cuttedType = weaponsRandCopyMass[oneWeaponTypeIndex];
