@@ -454,6 +454,7 @@ function renderWeapon(){
   }
 }  
 function createAndRenderRoom(){
+	currentRoom = null;
 	currentRoom = Object.assign({}, currentRoomExample);
 	//render RoomWrapper
     if(document.getElementById('room-wrapper')!=null){
