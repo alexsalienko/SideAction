@@ -1564,6 +1564,7 @@ function renderHealthBar(){
 crelHealthBar.className = 'hero-health-bar';
  let crelHealthBarFiller = document.createElement('div');
 crelHealthBarFiller.className = 'hero-health-bar__filler';
+crelHealthBarFiller.style.width = countPercent(currentRoom.hero.health,currentRoom.hero.maxHealth)+'%';
 crelHealthBar.innerHTML = '<div class="hero-health-bar__numbers"><span id="hero-current-health">'+currentRoom.hero.health+'/'+currentRoom.hero.maxHealth+'</span></div>';
 crelHealthBar.append(crelHealthBarFiller);
 domLevelPanel.append(crelHealthBar);
