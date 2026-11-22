@@ -521,56 +521,6 @@ renderLevelPanel();
 
 }
 
-function createAndRenderEnems(){
-  //Create
-  currentRoom.enems = [];
-  let randEnemsQuant = getRandomIntInclusive(3, 10);
-  let leftEnemsStartPoint = -100;
-  let rightEnemsStartPoint = gameSettings.scene.width+100;
-  for(let i=0;i<randEnemsQuant-1;i++){
-  let randEnDirection = getRandomIntInclusive(0, 1);
-  let enDirection;
-  let enStartPoint;
-  let randMassNumber = getRandomIntInclusive(0, currentRoom.enemsRandMass.length-1);
-  let currentEnemyName = currentRoom.enemsRandMass[randMassNumber];
-  let currEnObj = Object.assign({}, enemsSource[currentEnemyName]);
-    if(randEnDirection){
-    enDirection = 'toRight';
-    enStartPoint = leftEnemsStartPoint-currEnObj.outerBoxWidth;
-  } else {
-    enDirection = 'toLeft';
-    enStartPoint = rightEnemsStartPoint;
-  } 
-  currEnObj.id = currentRoom.currentEnId;
-  currEnObj.direction = enDirection;
-  currEnObj.left = enStartPoint;
-  currEnObj.bottom = gameSettings.floorBottom;
-
-let randDropNumber = getRandomIntInclusive(0, currentRoom.dropsRandMass.length-1);
-let randDropName = currentRoom.dropsRandMass[randDropNumber];
-currEnObj.drop = Object.assign({}, dropsSource[randDropName]);
-    
-  currentRoom.enems.push(currEnObj);
-  if(randEnDirection){
-    leftEnemsStartPoint-=currEnObj.outerBoxWidth+gameSettings.enemsGap;
-  } else {
-    rightEnemsStartPoint+=currEnObj.outerBoxWidth+gameSettings.enemsGap;
-  }
-  currentRoom.currentEnId++;
-}
-//Render
-  for(let i=0;i<currentRoom.enems.length;i++){
-    let crelEnemy = document.createElement('div');
-    crelEnemy.className = 'enemy '+currentRoom.enems[i].class;
-    crelEnemy.style.width = currentRoom.enems[i].outerBoxWidth+'px';
-    crelEnemy.style.height = currentRoom.enems[i].outerBoxHeight+'px';
-    crelEnemy.style.border='1px solid '+currentRoom.enems[i].color;
-    crelEnemy.style.bottom = currentRoom.enems[i].bottom+'px';
-    crelEnemy.style.left = currentRoom.enems[i].left+'px';
-    crelEnemy.setAttribute('enemy-id',currentRoom.enems[i].id);
-    domRoomWrapper.append(crelEnemy);
-  }
-}
 
 function createAndRenderWave(){
   let currentPoint = gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow];
@@ -1957,9 +1907,11 @@ createAndRenderRoom();
 toggleMap();
 renderMap();
 //console.log('gameState.mapPoints after',gameState.mapPoints);
-    }//конец 
+    }//конец if
   }
-
+function checkAndUnlockPoints(){
+//сюда перенести из мэппоинтселект
+}
 sceneRender();
 //createAndRenderRoom(); 
 
