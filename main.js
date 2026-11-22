@@ -1786,8 +1786,8 @@ function buildMapPoints(){
              enType = ensTypes[getRandomIntInclusive(0,ensTypesCount-1)];
           }
           
-          let randDropMassNumber = getRandomIntInclusive(0, currentRoom.dropsRandMass.length-1);
-          let randDropName = currentRoom.dropsRandMass[randDropMassNumber];
+          let randDropMassNumber = getRandomIntInclusive(0, gameLevels[gameState.currentLevel].dropsRandMass.length-1);
+          let randDropName = gameLevels[gameState.currentLevel].dropsRandMass[randDropMassNumber];
           singleEnObj = Object.assign({}, enemsSource[enType]);
           singleEnObj.drop = Object.assign({}, dropsSource[randDropName]);
 
