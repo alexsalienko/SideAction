@@ -518,9 +518,7 @@ domRoomWrapper.append(crelRoomTopBar);
   createAndRenderWave();
 renderLevelPanel();
 
-//frame animation start
-clearInterval(nIntervId);
-nIntervId = setInterval(frameBuilder,35/*16.7*/);
+
 }
 
 function createAndRenderEnems(){
@@ -2056,7 +2054,12 @@ document.getElementById('toggleMap').onclick = function(){
 };
 devToolsRender();
 //DevTools ends
-  
+
+//frame animation start
+clearInterval(nIntervId);
+nIntervId = setInterval(frameBuilder,35/*16.7*/);
+
+	
 }//gameInit end
 let nIntervId;
 
