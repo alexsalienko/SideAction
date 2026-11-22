@@ -374,9 +374,6 @@ let currentRoom = {
   enems:[],
   drops:[],
   projectiles:[],
-  dropsRandMass: ['healt','jewerly','diamond','necklace'],
-  enemsRandMass: ['small','small-2','medium','medium-2','big','big-2'],
-  weaponsRandMass: ['gun','machineGun','rifle','knife','machete','axe'],
   currentProjId:1,
   currentDropId:1,
   enemsKilled:0,
@@ -1759,7 +1756,7 @@ function buildMapPoints(){
         //define enems set
         let ensTypesCount = getRandomIntInclusive(1,3);
         let ensTypes = [];
-        let ensRandCopyMass = gameLevels(gameState.currentLevel).enemsRandMass.slice();
+        let ensRandCopyMass = gameLevels[gameState.currentLevel].enemsRandMass.slice();
         for(let i=0;i<ensTypesCount;i++){
         let oneEnemyTypeIndex = getRandomIntInclusive(0,ensRandCopyMass.length-1);
         let cuttedType = ensRandCopyMass[oneEnemyTypeIndex];
@@ -1770,7 +1767,7 @@ function buildMapPoints(){
         //define weapons set
         let weaponsTypesCount = getRandomIntInclusive(1,3);
         let weaponsTypes = [];
-        let weaponsRandCopyMass = gameLevels(gameState.currentLevel).weaponsRandMass.slice();
+        let weaponsRandCopyMass = gameLevels[gameState.currentLevel].weaponsRandMass.slice();
         for(let i=0;i<weaponsTypesCount;i++){
         let oneWeaponTypeIndex = getRandomIntInclusive(0,weaponsRandCopyMass.length-1);
         let cuttedType = weaponsRandCopyMass[oneWeaponTypeIndex];
