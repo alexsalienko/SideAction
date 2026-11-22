@@ -370,8 +370,10 @@ let gameLevels = [
 	},
 ]
 
-let currentRoom;
-
+let currentRoom = {};
+currentRoom.hero = Object.assign({}, heroSource);
+currentRoom.hero.health = currentRoom.hero.maxHealth;
+	
 let currentRoomExample = {
   enems:[],
   drops:[],
@@ -454,9 +456,7 @@ function renderWeapon(){
   }
 }  
 function createAndRenderRoom(){
-	currentRoom = null;
-	let room = Object.assign({}, currentRoomExample);
-	currentRoom = room;
+	currentRoom = Object.assign({}, currentRoomExample);
 	console.log('currentRoom: ',currentRoom);
 	//render RoomWrapper
     if(document.getElementById('room-wrapper')!=null){
@@ -471,12 +471,13 @@ function createAndRenderRoom(){
 //Текущая точка
   let currentPoint = gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow];
   //hero initialization
-  currentRoom.hero = Object.assign({}, heroSource);
+  
   currentRoom.hero.left = (gameSettings.scene.width/2)-(currentRoom.hero.outerBoxWidth/2);
-  currentRoom.hero.health = currentRoom.hero.maxHealth;
+  
   currentRoom.hero.weaponSelectChanged = false;
 //adding hands
   let hands = Object.assign({}, weaponsSource['hands']);
+currentRoom.hero.weaponsSet=[];
   currentRoom.hero.weaponsSet.push(hands);
   //room weapons set
   for(let i = 0;i<currentPoint.rules.weaponsTypes.length;i++){
