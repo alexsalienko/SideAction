@@ -1875,42 +1875,51 @@ function addEventsOnMap(){
 }
 
   function mapPointSelect(){
-    let currentCol = +this.closest('.map-row').getAttribute('data-col');
-    let currentRow = +this.closest('.map-row').getAttribute('data-row');
-    let currentColNext = +currentCol+1;
-    if(gameState.mapPoints[currentCol][currentRow].unlocked && currentCol>gameState.currentMapPointCol){
+    let selectedCol = +this.closest('.map-row').getAttribute('data-col');
+    let selectedRow = +this.closest('.map-row').getAttribute('data-row');
+//Переписывание свойств текущей и выбранной точек
       delete gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow].current;
       gameState.mapPoints[gameState.currentMapPointCol][gameState.currentMapPointRow].finished = true;
-      gameState.mapPoints[currentCol][currentRow].current=true;
-      if(gameState.mapPoints[currentCol].length>1){
-        for(let i=0;i<gameState.mapPoints[currentCol].length;i++){
-          if(!gameState.mapPoints[currentCol][i].current){
-          gameState.mapPoints[currentCol][i].unlocked = false;
+      gameState.mapPoints[selectedCol][selectedRow].current=true;
+      if(gameState.mapPoints[selectedCol].length>1){
+        for(let i=0;i<gameState.mapPoints[selectedCol].length;i++){
+          if(!gameState.mapPoints[selectedCol][i].current){
+          gameState.mapPoints[selectedCol][i].unlocked = false;
           }
         }
       }
-      gameState.currentMapPointCol = currentCol;
-      gameState.currentMapPointRow = currentRow;
-      if(currentCol+1<gameState.mapPoints.length){
-      if(gameState.mapPoints[currentCol].length==1) {
-        for(let i=0;i<gameState.mapPoints[currentColNext].length;i++){
-          gameState.mapPoints[currentColNext][i].unlocked = true;
-          
-        }
-      } else if(gameState.mapPoints[currentColNext].length==1) {
-        gameState.mapPoints[currentColNext][0].unlocked = true;
-      } else if(gameState.mapPoints[currentColNext].length>1) {
-        gameState.mapPoints[currentColNext][currentRow].unlocked = true;
-      }
-    }
-createAndRenderRoom();
-toggleMap();
-renderMap();
-//console.log('gameState.mapPoints after',gameState.mapPoints);
-    }//конец if
+	//Переназначение текущей точки в gameState
+      gameState.currentMapPointCol = selectedCol;
+      gameState.currentMapPointRow = selectedRow;
+	  //запуск room скрытие и перерендер map
+		createAndRenderRoom();
+		toggleMap();
+		renderMap();
   }
 function checkAndUnlockPoints(){
-//сюда перенести из мэппоинтселект
+			//Определение текущей и следующей колонки
+		let currentCol = gameState.currentMapPointCol;
+		let currentRow = gameState.currentMapPointRow;
+	    let currentColNext = +currentCol+1;
+	  let currentPoint = gameState.mapPoints[currentCol][currentRow];
+  let pointEnemsSet = currentPoint.rules.enemsObjects;
+	if(!pointEnemsSet.length){
+		//unlocking starts
+	      if(currentCol+1<gameState.mapPoints.length){
+	      if(gameState.mapPoints[currentCol].length==1) {
+	        for(let i=0;i<gameState.mapPoints[currentColNext].length;i++){
+	          gameState.mapPoints[currentColNext][i].unlocked = true;
+	        }
+	      } else if(gameState.mapPoints[currentColNext].length==1) {
+	        gameState.mapPoints[currentColNext][0].unlocked = true;
+	      } else if(gameState.mapPoints[currentColNext].length>1) {
+	        gameState.mapPoints[currentColNext][currentRow].unlocked = true;
+	      }
+	    }
+		toggleMap();
+		renderMap();
+		//unlocking ends
+	}
 }
 sceneRender();
 //createAndRenderRoom(); 
