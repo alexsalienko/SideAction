@@ -1039,11 +1039,13 @@ if(currentRoom.hero.weapon.durability){
   document.querySelector('[enemy-id="'+singleEn.id+'"]').style.opacity = 0.2;
   singleEn.health-=currentRoom.hero.weapon.damage;
   if(singleEn.health<1){
+	//enemy death starts
     document.querySelector('[enemy-id="'+singleEn.id+'"]').remove();
     singleEn.dead = true;
     currentRoom.enemsKilled++;
     document.getElementById('current-ens-killed').innerHTML=currentRoom.enemsKilled;
-    //drop-start
+	checkAndUnlockPoints();
+    //enemy-drop-start
     let currentDropObj = Object.assign({}, singleEn.drop);
     currentDropObj.id=currentRoom.currentDropId;
     currentDropObj.left = singleEn.left+(singleEn.outerBoxWidth/2)-(singleEn.drop.width/2);
