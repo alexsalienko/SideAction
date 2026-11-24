@@ -25,7 +25,7 @@ gameSettings = {
   `,
   maxEnemsOnSide:4,
   roomEnMin:4,
-  roomEnMax:30,
+  roomEnMax:8,
   waveEnemsMin:4,
   waveEnemsMax:8,
   dropsVanishTime:150,
@@ -1867,6 +1867,7 @@ function toggleMap(){
 		rendMap.classList.remove('map-hidden');
 		rendMap.classList.add('map-visible');
 	}
+	pauseGame();
 }
 
 function addEventsOnMap(){
