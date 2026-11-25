@@ -1312,7 +1312,7 @@ function roomFinished(){
 	<div class="success-points">`+gameState.playerPoints+`</div>
 	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
 	`;
-	domGameScene.append(elSuccessWrapp);
+	domGameScene.append(crelSuccessWrapp);
 	document.getElementById('room-map-btn').addEventListener('click',
 	function(){
 		document.getElementById('room-finished-wrap').remove();
@@ -1927,6 +1927,7 @@ function checkAndUnlockPoints(){
 	        gameState.mapPoints[currentColNext][currentRow].unlocked = true;
 	      }
 	    }
+		roomFinished();
 		renderMap();
 		//unlocking ends
 	}//if empty ends
