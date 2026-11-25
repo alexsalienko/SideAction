@@ -1300,17 +1300,25 @@ domRoomWrapper.append(elGameOverWrapp);
 document.getElementById('game-over-reset-btn').addEventListener('click',gameInit);
 }
   
-function levelFinished(){
-clearInterval(timerInterval);
-let elSuccessWrapp = document.createElement('div');
-elSuccessWrapp.className= 'game-success';
-elSuccessWrapp.innerHTML = `
-<div class="success-title">Success!</div>
-<div class="success-points">`+gameState.playerPoints+`</div>
-<button id="success-next-btn" class="success-next-btn">Next level</button>
-`;
-domGameScene.append(elSuccessWrapp);
-document.getElementById('success-next-btn').addEventListener('click',gameInit);
+function roomFinished(){
+	let crelSuccessWrapp = document.createElement('div');
+	crelSuccessWrapp.className= 'room-finished-wrap';
+	crelSuccessWrapp.id= 'room-finished-wrap';
+	crelSuccessWrapp.setAttribute('data-opacity',0);
+	crelSuccessWrapp.setAttribute('data-opacity-speed',1);
+	relSuccessWrapp.setAttribute('data-opacity-step',0.1);
+	crelSuccessWrapp.innerHTML = `
+	<div class="success-title">Stage cleared!</div>
+	<div class="success-points">`+gameState.playerPoints+`</div>
+	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
+	`;
+	domGameScene.append(elSuccessWrapp);
+	document.getElementById('room-map-btn').addEventListener('click',
+	function(){
+		document.getElementById('room-finished-wrap').remove();
+		toggleMap();
+	}
+	);
 }
   
 function levelEndPointsCalc(){
