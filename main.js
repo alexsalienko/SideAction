@@ -1306,7 +1306,7 @@ function roomFinished(){
 	crelSuccessWrapp.id= 'room-finished-wrap';
 	crelSuccessWrapp.setAttribute('data-opacity',0);
 	crelSuccessWrapp.setAttribute('data-opacity-speed',1);
-	relSuccessWrapp.setAttribute('data-opacity-step',0.1);
+	crelSuccessWrapp.setAttribute('data-opacity-step',0.1);
 	crelSuccessWrapp.innerHTML = `
 	<div class="success-title">Stage cleared!</div>
 	<div class="success-points">`+gameState.playerPoints+`</div>
