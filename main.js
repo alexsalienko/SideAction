@@ -25,7 +25,7 @@ gameSettings = {
   `,
   maxEnemsOnSide:4,
   roomEnMin:4,
-  roomEnMax:8,
+  roomEnMax:4,
   waveEnemsMin:4,
   waveEnemsMax:8,
   dropsVanishTime:150,
@@ -1312,7 +1312,7 @@ function roomFinished(){
 	<div class="success-points">`+gameState.playerPoints+`</div>
 	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
 	`;
-	domGameScene.append(crelSuccessWrapp);
+	domRoomWrapper.append(crelSuccessWrapp);
 	document.getElementById('room-map-btn').addEventListener('click',
 	function(){
 		document.getElementById('room-finished-wrap').remove();
