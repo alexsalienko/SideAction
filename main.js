@@ -1915,7 +1915,13 @@ function checkAndUnlockPoints(){
 	    let currentColNext = +currentCol+1;
 	  let currentPoint = gameState.mapPoints[currentCol][currentRow];
   let pointEnemsSet = currentPoint.rules.enemsObjects;
-	if(!pointEnemsSet.length && !currentRoom.enems.length){
+	let allWaveDead = true;
+	for(let b=0;b<currentRoom.enems.length;b++){
+		if(!currentRoom.enems[b].dead){
+			allWaveDead = false;
+		}
+	}
+	if(!pointEnemsSet.length && allWaveDead){
 		//unlocking starts
 	      if(currentCol+1<gameState.mapPoints.length){
 	      if(gameState.mapPoints[currentCol].length==1) {
