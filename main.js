@@ -1915,7 +1915,7 @@ function checkAndUnlockPoints(){
 	    let currentColNext = +currentCol+1;
 	  let currentPoint = gameState.mapPoints[currentCol][currentRow];
   let pointEnemsSet = currentPoint.rules.enemsObjects;
-	if(!pointEnemsSet.length){
+	if(!pointEnemsSet.length && !currentRoom.enems.length){
 		//unlocking starts
 	      if(currentCol+1<gameState.mapPoints.length){
 	      if(gameState.mapPoints[currentCol].length==1) {
