@@ -1919,10 +1919,9 @@ function checkAndUnlockPoints(){
 	        gameState.mapPoints[currentColNext][currentRow].unlocked = true;
 	      }
 	    }
-		toggleMap();
 		renderMap();
 		//unlocking ends
-	}
+	}//if empty ends
 }
 sceneRender();
 //createAndRenderRoom(); 
