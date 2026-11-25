@@ -1962,7 +1962,7 @@ function devToolsRender(){
   let crelDevTools = document.createElement('div');
   crelDevTools.id = 'devTools';
 crelDevTools.innerHTML =`
-<button id="setRoom">Start Room</button>
+<button id="setRoom">Start Test Room</button>
 <button id="setMenu">Start Menu</button>
 <button id="setHands">Hands</button>
 <button id="setGun">Gun</button>
@@ -1979,7 +1979,7 @@ crelDevTools.innerHTML =`
 document.getElementsByTagName('body')[0].append(crelDevTools);
 document.getElementById('setRoom').onclick = function(){
   createAndRenderRoom();
-  console.log('gameInit');
+  console.log('start Test Room');
 };
 document.getElementById('setHands').onclick = function(){
   changeWeapon('hands');
