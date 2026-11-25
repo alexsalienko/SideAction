@@ -513,3 +513,17 @@ background: rgba(152, 37, 37, 0.2);
 .map-hidden{
     display:none;
 }
+.room-finished-wrap{
+      border:1px solid #fff;
+    width:600px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  padding:5px;
+  position:absolute;
+  top:100px;
+  left:50%;
+  transform:translate(-50%,0);
+  color:#fff;
+}
