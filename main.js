@@ -25,7 +25,7 @@ gameSettings = {
   `,
   maxEnemsOnSide:4,
   roomEnMin:4,
-  roomEnMax:4,
+  roomEnMax:8,
   waveEnemsMin:4,
   waveEnemsMax:8,
   dropsVanishTime:150,
@@ -1261,6 +1261,7 @@ function dropPickingResult(i){
     updateHealthBar();
   } else if (singleDrop.type=='jewerly'){
     currentRoom.levelPoints+=singleDrop.points;
+	gameState.playerPoints+=currentRoom.levelPoints;
     document.getElementById('level-points-number').innerHTML = currentRoom.levelPoints;
   } else if(singleDrop.type=='weapon'){
     let pickedWeaponObj = Object.assign({}, weaponsSource[singleDrop.name]);
@@ -1309,7 +1310,7 @@ function roomFinished(){
 	crelSuccessWrapp.setAttribute('data-opacity-step',0.1);
 	crelSuccessWrapp.innerHTML = `
 	<div class="success-title">Stage cleared!</div>
-	<div class="success-points">`+gameState.playerPoints+`</div>
+	<div class="success-points"> Total points`+gameState.playerPoints+`</div>
 	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
 	`;
 	domRoomWrapper.append(crelSuccessWrapp);
