@@ -364,7 +364,7 @@ gameState = {
 let gameLevels = [
 	{
 	name:'forest',
-	dropsRandMass: ['healt','jewerly','diamond','necklace'],
+	dropsRandMass: ['healt','jewerly','diamond','necklace','rifle','knife'],
   enemsRandMass: ['small','small-2','medium','medium-2','big','big-2'],
   weaponsRandMass: ['gun','machineGun','rifle','knife','machete','axe'],
 	},
