@@ -1826,10 +1826,10 @@ function renderMap(){
     crelRow.setAttribute('data-col',i);
     crelRow.setAttribute('data-row',r);
     if(singleCol[r].startingPoint){
-      crelRow.innerHTML='<div class="start-and-finish-title">Starting point</div>';
+      crelRow.innerHTML='<div class="start-and-finish-title">Level Start</div>';
     }
     if(singleCol[r].finishingPoint){
-      crelRow.innerHTML='<div class="start-and-finish-title">Finishing point</div>';
+      crelRow.innerHTML='<div class="start-and-finish-title">Level Finish</div>';
     }
   if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
