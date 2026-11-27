@@ -1827,7 +1827,7 @@ function renderMap(){
       crelRow.innerHTML='<div class="start-and-finish-title">Starting point</div>';
     }
     if(singleCol[r].finishingPoint){
-      crelRow..innerHTML='<div class="start-and-finish-title">Finishing point</div>';
+      crelRow.innerHTML='<div class="start-and-finish-title">Finishing point</div>';
     }
   if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
