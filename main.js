@@ -459,11 +459,11 @@ function renderTotalPoints(){
 let crelTotalPoints = document.createElement('div');
 crelTotalPoints.id = 'total-points-bar';
 crelTotalPoints.className = 'total-points-bar';
-crelTotalPoints.append(gameState.playerPoints);
+crelTotalPoints.innerHTML='Total score: <div id="total-points-number">'+gameState.playerPoints+'</div>';
 domScene.append(crelTotalPoints);
 }
 function updateDomTotalPoints(){
-document.getElementById('total-points-bar').innerHTML=gameState.playerPoints;
+document.getElementById('total-points-number').innerHTML=gameState.playerPoints;
 }
 function createAndRenderRoom(){
 	Object.assign(currentRoom, currentRoomExample);
@@ -1322,7 +1322,7 @@ function roomFinished(){
 	crelSuccessWrapp.setAttribute('data-opacity-step',0.1);
 	crelSuccessWrapp.innerHTML = `
 	<div class="success-title">Stage cleared!</div>
-	<div class="success-points">Room points`+currentRoom.playerPoints+`</div>
+	<div class="success-points">Room points`+currentRoom.levelPoints+`</div>
 	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
 	`;
 	domRoomWrapper.append(crelSuccessWrapp);
