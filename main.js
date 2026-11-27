@@ -1273,6 +1273,7 @@ function dropPickingResult(i){
   } else if (singleDrop.type=='jewerly'){
     currentRoom.levelPoints+=singleDrop.points;
 	gameState.playerPoints+=singleDrop.points;
+	updateDomTotalPoints();
     document.getElementById('level-points-number').innerHTML = currentRoom.levelPoints;
   } else if(singleDrop.type=='weapon'){
     let pickedWeaponObj = Object.assign({}, weaponsSource[singleDrop.name]);
