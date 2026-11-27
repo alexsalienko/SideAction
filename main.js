@@ -1819,28 +1819,29 @@ function renderMap(){
      let crelRow = document.createElement('div');
     crelRow.className = 'map-row';
     if(!singleCol[r].unlocked && !singleCol[r].finishingPoint){
-    crelRow.append('Locked');
+    crelRow.innerHTML='<div class="locked-point-title">Locked point</div>';
     }
     crelRow.setAttribute('data-col',i);
     crelRow.setAttribute('data-row',r);
     if(singleCol[r].startingPoint){
-      crelRow.append('Starting point');
+      crelRow.innerHTML='<div class="start-and-finish-title">Starting point</div>';
     }
     if(singleCol[r].finishingPoint){
-      crelRow.append('Finishing point');
+      crelRow..innerHTML='<div class="start-and-finish-title">Finishing point</div>';
     }
   if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
-    crelRow.append('Unlocked');
+    crelRow.innerHTML='<div class="point-unlocked-title">Unlocked point</div>';
     }
     if(singleCol[r].current){
-      crelRow.append('Current');
+      crelRow.innerHTML='<div class="current-point-title">Current point</div>';
       crelRow.classList.remove('unlocked');
       crelRow.classList.add('current'); 
     }
     if(singleCol[r].finished){
       crelRow.classList.remove('unlocked');
-      crelRow.classList.add('finished'); 
+      crelRow.classList.add('finished');
+	crelRow.innerHTML='<div class="finished-point-title">Finished point</div>';
     }
     if(!singleCol[r].startingPoint && !singleCol[r].finishingPoint){
     let pointEnemsTypes = '';
