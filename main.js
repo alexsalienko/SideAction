@@ -1819,6 +1819,7 @@ function renderMap(){
      let crelRow = document.createElement('div');
     crelRow.className = 'map-row';
 	  let crelPointStateBox = document.createElement('div');
+	  crelPointStateBox.className = 'point-state-box';
     if(!singleCol[r].unlocked && !singleCol[r].finishingPoint){
     crelPointStateBox.innerHTML='<div class="locked-point-title">Locked point</div>';
     }
