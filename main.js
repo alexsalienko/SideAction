@@ -757,18 +757,19 @@ function objectTimersChange(){
   if(currentRoom.hero.singleShotDelay>0){
     currentRoom.hero.singleShotDelay--;
   }
-  let fadeInCollection = document.querySelectorAll('[fade-in]');
-  for (let i=0;i<fadeInCollection.length;i++) {
-   let fade = +fadeInCollection[i].getAttribute('fade-in');
+//Fade Out
+  let fadeOutCollection = document.querySelectorAll('[fade-out]');
+  for (let i=0;i<fadeOutCollection.length;i++) {
+   let fade = +fadeOutCollection[i].getAttribute('fade-out');
     if(fade>0){
   fade--;
-  fadeInCollection[i].setAttribute('fade-in',fade);
-  fadeInCollection[i].style.opacity = +fadeInCollection[i].style.opacity-0.1;
+  fadeOutCollection[i].setAttribute('fade-out',fade);
+  fadeOutCollection[i].style.opacity = +fadeOutCollection[i].style.opacity-0.1;
       } else if(fade<1){
-      fadeInCollection[i].remove();
+      fadeOutCollection[i].remove();
       }
   }
-
+//Fade In
 
 rollMelee();
   
@@ -1033,7 +1034,7 @@ if(currentRoom.hero.weapon.durability){
   } else if(singleEn.direction=='toLeft'){
     hitEffect.style.left = singleEn.left+'px';
   }
-  hitEffect.setAttribute('fade-in',30);
+  hitEffect.setAttribute('fade-out',30);
   domRoomWrapper.append(hitEffect);
   document.querySelector('[enemy-id="'+singleEn.id+'"]').setAttribute('en-hitted',true);
   document.querySelector('[enemy-id="'+singleEn.id+'"]').style.opacity = 0.2;
@@ -1229,7 +1230,7 @@ function dropsCollision(){
             i--;
             let pickUpEffect = document.createElement('div');
             pickUpEffect.className = 'pick-up-layer';
-            pickUpEffect.setAttribute('fade-in',30);
+            pickUpEffect.setAttribute('fade-out',30);
             pickUpEffect.style.opacity = 1;
             domRoomWrapper.append(pickUpEffect);
             
@@ -1242,7 +1243,7 @@ function dropsCollision(){
             i--;
             let pickUpEffect = document.createElement('div');
             pickUpEffect.className = 'pick-up-layer';
-            pickUpEffect.setAttribute('fade-in',30);
+            pickUpEffect.setAttribute('fade-out',30);
             pickUpEffect.style.opacity = 1;
             domRoomWrapper.append(pickUpEffect);
             
