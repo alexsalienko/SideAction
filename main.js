@@ -1831,7 +1831,7 @@ function renderMap(){
     }
   if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
-    crelRow.innerHTML='<div class="point-unlocked-title">Unlocked point</div>';
+    crelRow.innerHTML='<div class="unlocked-point-title">Unlocked point</div>';
     }
     if(singleCol[r].current){
       crelRow.innerHTML='<div class="current-point-title">Current point</div>';
