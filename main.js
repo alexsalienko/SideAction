@@ -454,7 +454,17 @@ function renderWeapon(){
         domHero.append(crelRangedWeapon);
       }
   }
-}  
+}
+function renderTotalPoints(){
+let crelTotalPoints = document.createElement('div');
+crelTotalPoints.id = 'total-points-bar';
+crelTotalPoints.className = 'total-points-bar';
+crelTotalPoints.append(gameState.playerPoints);
+domScene.append(crelTotalPoints);
+}
+function updateDomTotalPoints(){
+document.getElementById('total-points-bar').innerHTML=gameState.playerPoints;
+}
 function createAndRenderRoom(){
 	Object.assign(currentRoom, currentRoomExample);
 	console.log('currentRoom: ',currentRoom);
@@ -1262,7 +1272,7 @@ function dropPickingResult(i){
     updateHealthBar();
   } else if (singleDrop.type=='jewerly'){
     currentRoom.levelPoints+=singleDrop.points;
-	gameState.playerPoints+=currentRoom.levelPoints;
+	gameState.playerPoints+=singleDrop.points;
     document.getElementById('level-points-number').innerHTML = currentRoom.levelPoints;
   } else if(singleDrop.type=='weapon'){
     let pickedWeaponObj = Object.assign({}, weaponsSource[singleDrop.name]);
@@ -1311,7 +1321,7 @@ function roomFinished(){
 	crelSuccessWrapp.setAttribute('data-opacity-step',0.1);
 	crelSuccessWrapp.innerHTML = `
 	<div class="success-title">Stage cleared!</div>
-	<div class="success-points"> Total points`+gameState.playerPoints+`</div>
+	<div class="success-points">Room points`+currentRoom.playerPoints+`</div>
 	<button id="room-map-btn" class="room-map-btn">Open map (M)</button>
 	`;
 	domRoomWrapper.append(crelSuccessWrapp);
@@ -1940,9 +1950,10 @@ function checkAndUnlockPoints(){
 		//unlocking ends
 	}//if empty ends
 }
-sceneRender();
-//createAndRenderRoom(); 
 
+//functions starting with init	
+sceneRender();
+renderTotalPoints();
 buildMapSections();  
 function frameBuilder() {
 heroWalking();
