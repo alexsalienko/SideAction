@@ -1818,8 +1818,9 @@ function renderMap(){
     //Отдельный поинт
      let crelRow = document.createElement('div');
     crelRow.className = 'map-row';
+	  let crelPointStateBox = document.createElement('div');
     if(!singleCol[r].unlocked && !singleCol[r].finishingPoint){
-    crelRow.innerHTML='<div class="locked-point-title">Locked point</div>';
+    crelPointStateBox.innerHTML='<div class="locked-point-title">Locked point</div>';
     }
     crelRow.setAttribute('data-col',i);
     crelRow.setAttribute('data-row',r);
@@ -1831,17 +1832,17 @@ function renderMap(){
     }
   if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
-    crelRow.innerHTML='<div class="unlocked-point-title">Unlocked point</div>';
+    crelPointStateBox.innerHTML='<div class="unlocked-point-title">Unlocked point</div>';
     }
     if(singleCol[r].current){
-      crelRow.innerHTML='<div class="current-point-title">Current point</div>';
+      crelPointStateBox.innerHTML='<div class="current-point-title">Current point</div>';
       crelRow.classList.remove('unlocked');
       crelRow.classList.add('current'); 
     }
     if(singleCol[r].finished){
       crelRow.classList.remove('unlocked');
       crelRow.classList.add('finished');
-	crelRow.innerHTML='<div class="finished-point-title">Finished point</div>';
+	crelPointStateBox.innerHTML='<div class="finished-point-title">Finished point</div>';
     }
     if(!singleCol[r].startingPoint && !singleCol[r].finishingPoint){
     let pointEnemsTypes = '';
@@ -1852,7 +1853,7 @@ function renderMap(){
     for(let e=0;e<singleCol[r].rules.weaponsTypes.length;e++){
       pointWeaponsTypes+='<div>'+singleCol[r].rules.weaponsTypes[e]+'</div>';
     }
-  
+  	crelRow.append(crelPointStateBox);
     crelRow.innerHTML+=`
     <div>Col: `+i+` Point: `+r+`</div>
     <div>enemsCount: (`+singleCol[r].rules.enemsCount+`)</div>
