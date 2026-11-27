@@ -459,7 +459,7 @@ function renderTotalPoints(){
 let crelTotalPoints = document.createElement('div');
 crelTotalPoints.id = 'total-points-bar';
 crelTotalPoints.className = 'total-points-bar';
-crelTotalPoints.innerHTML='Total score: <div id="total-points-number">'+gameState.playerPoints+'</div>';
+crelTotalPoints.innerHTML='Total score: <span id="total-points-number">'+gameState.playerPoints+'</span>';
 domScene.append(crelTotalPoints);
 }
 function updateDomTotalPoints(){
@@ -1829,7 +1829,7 @@ function renderMap(){
     if(singleCol[r].finishingPoint){
       crelRow.append('Finishing point');
     }
-  if(singleCol[r].unlocked){
+  if(singleCol[r].unlocked && !singleCol[r].startingPoint){
       crelRow.classList.add('unlocked');
     crelRow.append('Unlocked');
     }
