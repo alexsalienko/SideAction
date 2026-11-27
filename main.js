@@ -1845,6 +1845,7 @@ function renderMap(){
       crelRow.classList.add('finished');
 	crelPointStateBox.innerHTML='<div class="finished-point-title">Finished point</div>';
     }
+	crelRow.append(crelPointStateBox);
     if(!singleCol[r].startingPoint && !singleCol[r].finishingPoint){
     let pointEnemsTypes = '';
     for(let e=0;e<singleCol[r].rules.enemsTypes.length;e++){
@@ -1854,7 +1855,6 @@ function renderMap(){
     for(let e=0;e<singleCol[r].rules.weaponsTypes.length;e++){
       pointWeaponsTypes+='<div>'+singleCol[r].rules.weaponsTypes[e]+'</div>';
     }
-  	crelRow.append(crelPointStateBox);
     crelRow.innerHTML+=`
     <div>Col: `+i+` Point: `+r+`</div>
     <div>enemsCount: (`+singleCol[r].rules.enemsCount+`)</div>
