@@ -1958,6 +1958,8 @@ function checkAndUnlockPoints(){
 function checkIfStageCleared(){
 	let dropsOnFloor = document.getElementsByClassName('drop-item');
 	let waveRendered = document.getElementsByClassName('enemy');
+	let currentCol = gameState.currentMapPointCol;
+		let currentRow = gameState.currentMapPointRow;
 	let currentPoint = gameState.mapPoints[currentCol][currentRow];
   let pointEnemsSet = currentPoint.rules.enemsObjects;
 	if(!dropsOnFloor.length && !pointEnemsSet.length && !waveRendered.length){
