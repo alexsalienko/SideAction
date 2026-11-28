@@ -759,6 +759,17 @@ currentRoom.hero.meleeStageSpeed--;
   }
 }
 
+function fadeOut() {
+  let fadeOutCollection = document.querySelectorAll('[fade-out]');
+  for (let i=0;i<fadeOutCollection.length;i++) {
+   let fadeSpeed = +fadeOutCollection[i].getAttribute('fade-out');
+    if(+fadeOutCollection[i].style.opacity>0){
+  		fadeOutCollection[i].style.opacity = +fadeOutCollection[i].style.opacity-fadeSpeed;
+      } else if(+fadeOutCollection[i].style.opacity<0.1){
+      fadeOutCollection[i].remove();
+      }
+  }
+}
 
 function objectTimersChange(){
 
@@ -767,8 +778,9 @@ function objectTimersChange(){
   if(currentRoom.hero.singleShotDelay>0){
     currentRoom.hero.singleShotDelay--;
   }
+fadeOut();
 //Fade Out
-  let fadeOutCollection = document.querySelectorAll('[fade-out]');
+ /* let fadeOutCollection = document.querySelectorAll('[fade-out]');
   for (let i=0;i<fadeOutCollection.length;i++) {
    let fade = +fadeOutCollection[i].getAttribute('fade-out');
     if(fade>0){
@@ -778,7 +790,7 @@ function objectTimersChange(){
       } else if(fade<1){
       fadeOutCollection[i].remove();
       }
-  }
+  } */
 //Fade In
 
 rollMelee();
