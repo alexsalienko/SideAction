@@ -1056,7 +1056,6 @@ if(currentRoom.hero.weapon.durability){
     singleEn.dead = true;
     currentRoom.enemsKilled++;
     document.getElementById('current-ens-killed').innerHTML=currentRoom.enemsKilled;
-	checkAndUnlockPoints();
     //enemy-drop-start
     let currentDropObj = Object.assign({}, singleEn.drop);
     currentDropObj.id=currentRoom.currentDropId;
@@ -1094,6 +1093,7 @@ if(currentRoom.hero.weapon.durability){
     }
     domRoomWrapper.append(crelDropItem);
     currentRoom.currentDropId++;
+	checkAndUnlockPoints();
     //drop-end
     let crelDeadAnim = document.createElement('div');
     crelDeadAnim.className = 'death-animation-wrapper';
