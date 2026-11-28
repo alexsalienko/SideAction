@@ -1243,7 +1243,7 @@ function dropsCollision(){
             pickUpEffect.setAttribute('fade-out',30);
             pickUpEffect.style.opacity = 1;
             domRoomWrapper.append(pickUpEffect);
-            
+            checkIfStageCleared();
           }
         } else if(currentRoom.hero.direction=='toLeft'){
             if(currentRoom.hero.left<singleDrop.left+singleDrop.width && singleDrop.left<currentRoom.hero.left){
@@ -1256,7 +1256,7 @@ function dropsCollision(){
             pickUpEffect.setAttribute('fade-out',30);
             pickUpEffect.style.opacity = 1;
             domRoomWrapper.append(pickUpEffect);
-            
+            checkIfStageCleared();
           }
         }
    }
