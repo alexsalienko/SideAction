@@ -907,6 +907,7 @@ if(allFaded){
       singleDomDrop.remove();
       currentRoom.drops.splice(i,1);
       i--;
+	checkIfStageCleared();
     }
     //blink
     if(singleDrop.blinkTime>0){
