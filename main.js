@@ -1957,7 +1957,8 @@ function checkAndUnlockPoints(){
 
 function checkIfStageCleared(){
 	let dropsOnFloor = document.getElementsByClassName('drop-item');
-	if(!dropsOnFloor.length){
+	let waveRendered = document.getElementsByClassName('enemy');
+	if(!dropsOnFloor.length && !pointEnemsSet.length && !waveRendered.length){
 		roomFinished();
 	}
 }
