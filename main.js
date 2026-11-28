@@ -1949,10 +1949,17 @@ function checkAndUnlockPoints(){
 	        gameState.mapPoints[currentColNext][currentRow].unlocked = true;
 	      }
 	    }
-		roomFinished();
+		checkIfStageCleared();
 		renderMap();
 		//unlocking ends
 	}//if empty ends
+}
+
+function checkIfStageCleared(){
+	let dropsOnFloor = document.getElementsByClassName('drop-item');
+	if(!dropsOnFloor.length){
+		roomFinished();
+	}
 }
 
 //functions starting with init	
